@@ -2,21 +2,31 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player;   // Assign your player in Inspector
-    public Vector3 offset;     // Distance from the player
+    public Transform player;
+    public Vector3 offset;
+    public float smoothTime = 0.2f;
+
+    private Vector3 velocity = Vector3.zero;
 
     void Start()
     {
-        // Optional: set default offset
         if (offset == Vector3.zero)
         {
             offset = transform.position - player.position;
         }
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        // Directly follow the player
-        transform.position = player.position + offset;
+        Vector3 targetPosition = player.position + offset;
+        targetPosition.z = transform.position.z;
+
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            targetPosition,
+            ref velocity,
+            smoothTime
+        );
     }
+
 }
