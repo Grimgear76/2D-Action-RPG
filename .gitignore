@@ -3,10 +3,12 @@
 [Tt]emp/
 [Ll]ogs/
 [Uu]serSettings/
+[Mm]emoryCaptures/
 
 # Build outputs
 [Bb]uild/
 [Bb]uilds/
+Obj/
 
 # IDE / OS files
 .vs/
