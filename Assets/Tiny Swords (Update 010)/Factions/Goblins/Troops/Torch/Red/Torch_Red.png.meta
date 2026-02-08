@@ -340,8 +340,8 @@ TextureImporter:
         serializedVersion: 2
         x: 52
         y: 826
-        width: 76
-        height: 81
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: Torch_Red_1
       rect:
         serializedVersion: 2
-        x: 242
+        x: 243
         y: 826
-        width: 77
-        height: 84
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,8 +384,8 @@ TextureImporter:
         serializedVersion: 2
         x: 435
         y: 826
-        width: 76
-        height: 91
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,8 +406,8 @@ TextureImporter:
         serializedVersion: 2
         x: 629
         y: 826
-        width: 74
-        height: 86
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,10 +426,10 @@ TextureImporter:
       name: Torch_Red_7
       rect:
         serializedVersion: 2
-        x: 816
+        x: 820
         y: 826
-        width: 79
-        height: 94
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,10 +448,10 @@ TextureImporter:
       name: Torch_Red_9
       rect:
         serializedVersion: 2
-        x: 1003
+        x: 1013
         y: 826
-        width: 84
-        height: 100
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,8 +472,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1207
         y: 826
-        width: 73
-        height: 91
+        width: 75
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -492,10 +492,10 @@ TextureImporter:
       name: Torch_Red_12
       rect:
         serializedVersion: 2
-        x: 17
+        x: 18
         y: 634
-        width: 112
-        height: 75
+        width: 115
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -516,8 +516,8 @@ TextureImporter:
         serializedVersion: 2
         x: 216
         y: 634
-        width: 104
-        height: 78
+        width: 115
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -536,10 +536,10 @@ TextureImporter:
       name: Torch_Red_16
       rect:
         serializedVersion: 2
-        x: 394
-        y: 625
-        width: 133
-        height: 91
+        x: 400
+        y: 636
+        width: 115
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -558,10 +558,10 @@ TextureImporter:
       name: Torch_Red_18
       rect:
         serializedVersion: 2
-        x: 591
+        x: 594
         y: 634
-        width: 116
-        height: 81
+        width: 115
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,8 +582,8 @@ TextureImporter:
         serializedVersion: 2
         x: 789
         y: 634
-        width: 108
-        height: 86
+        width: 115
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -604,8 +604,8 @@ TextureImporter:
         serializedVersion: 2
         x: 975
         y: 634
-        width: 112
-        height: 85
+        width: 115
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
