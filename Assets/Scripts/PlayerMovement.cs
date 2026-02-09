@@ -14,6 +14,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isKnockedBack;
 
+    public Player_Combat player_Combat;
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Slash"))
+        {
+            player_Combat.Attack();
+        }
+    }
+
 
 
 
