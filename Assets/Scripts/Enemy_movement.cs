@@ -16,11 +16,11 @@ public class Enemy_movement : MonoBehaviour
     private Transform player;
     private Animator anim;
     private EnemyState enemyState, newState;   //Controls Animations
-    
+
 
     void Start()
     {
-     
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         ChangeState(EnemyState.Idle);
@@ -30,7 +30,7 @@ public class Enemy_movement : MonoBehaviour
     {
         CheckForPlayer();
 
-        if(attackCooldownTimer > 0)
+        if (attackCooldownTimer > 0)
         {
             attackCooldownTimer -= Time.deltaTime;
         }
@@ -40,24 +40,22 @@ public class Enemy_movement : MonoBehaviour
         {
             Chase();
         }
-        else if(enemyState == EnemyState.Attacking)
+        else if (enemyState == EnemyState.Attacking)
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
         }
     }
 
     void Chase()
     {
-
-
         if (player.position.x > transform.position.x && facingDirection == -1 ||
                player.position.x < transform.position.x && facingDirection == 1)      //Used to flip direction
         {
             Flip();
         }
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = direction * speed;
-    
+        rb.velocity = direction * speed;
+
     }
 
     void Flip()  //usedd to flip x
@@ -80,21 +78,21 @@ public class Enemy_movement : MonoBehaviour
                 attackCooldownTimer = attackCooldown;
                 ChangeState(EnemyState.Attacking);
             }
-            else if(Vector2.Distance(transform.position, player.position) > attackRange)
+            else if (Vector2.Distance(transform.position, player.position) > attackRange && enemyState != EnemyState.Attacking)
             {
                 ChangeState(EnemyState.Chasing);
-            } 
+            }
         }
         else
         {
-            rb.linearVelocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
             ChangeState(EnemyState.Idle);
         }
     }
 
 
     void ChangeState(EnemyState newState)    //State Machine for Enemy animations
-    {   
+    {
         //exit the current animation
         if (enemyState == EnemyState.Idle)
             anim.SetBool("IsIdle", false);
