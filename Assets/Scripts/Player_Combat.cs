@@ -5,7 +5,12 @@ public class Player_Combat : MonoBehaviour
     public Transform attackPoint;
     public float weaponRange;
     public LayerMask enemylayer;
+    public float knockbackForce = 10;
+    public float knockbackTime = .15f;
+    public float stunTime = .3f;
     public int damage = 1;
+    
+    
 
 
     public Animator anim;
@@ -26,7 +31,7 @@ public class Player_Combat : MonoBehaviour
     {
         if (timer <= 0)
         {
-            anim.SetBool("isAttacking", true);
+            anim.SetBool("isAttacking", true);  //bool from animator
 
             timer = cooldown;
         }
@@ -37,16 +42,17 @@ public class Player_Combat : MonoBehaviour
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemylayer);
 
-        if (enemies.Length > 0)
+        if (enemies.Length > 0) //Gets list of enemies in hitbox and calls their ChangeHelath and Knockback methods
         {
             enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-damage);
+            enemies[0].GetComponent<Enemy_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime);
         }
 
     }
 
     public void FinishAttcking()
     {
-        anim.SetBool("isAttacking", false);
+        anim.SetBool("isAttacking", false);  //Called in animation event
     }
 
     private void OnDrawGizmosSelected()
