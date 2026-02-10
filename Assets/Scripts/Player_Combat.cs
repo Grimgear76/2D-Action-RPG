@@ -4,7 +4,7 @@ public class Player_Combat : MonoBehaviour
 {
     public Transform attackPoint;
     public float weaponRange;
-    public LayerMask enemylayer;
+    public LayerMask enemyLayer;
     public float knockbackForce = 10;
     public float knockbackTime = .15f;
     public float stunTime = .3f;
@@ -40,9 +40,14 @@ public class Player_Combat : MonoBehaviour
     public void Dealdamge()
     {
 
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemylayer);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemyLayer);
 
-        if (enemies.Length > 0) //Gets list of enemies in hitbox and calls their ChangeHelath and Knockback methods
+        foreach (Collider2D enemy in enemies)
+        {
+            if (enemy.isTrigger) continue;
+        }
+
+            if (enemies.Length > 0) //Gets list of enemies in hitbox and calls their ChangeHelath and Knockback methods
         {
             enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-damage);
             enemies[0].GetComponent<Enemy_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime);
