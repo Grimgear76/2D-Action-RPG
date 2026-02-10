@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Enemy_Combat : MonoBehaviour
 {
     public int damage = 1;
-    public Transform attackPoint;
-    public float weaponRange;
+    public Transform attackPoint; //hitbox
+    public float weaponRange;     //hitbox range
     public float knockbackForce;
     public float stunTime;
     public LayerMask playerLayer;
