@@ -6,7 +6,6 @@ using UnityEditor.Tilemaps;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed;
     public int facingDirection = 1;
 
     public Rigidbody2D rb;
@@ -52,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("horizontal", Mathf.Abs(horizontal)); //value must always be a positive value 
             anim.SetFloat("verticle", Mathf.Abs(vertical));     // <0.1 = no movement  , >0.1 = movement
 
-            rb.velocity = new Vector2(horizontal, vertical) * speed;
+            rb.linearVelocity = new Vector2(horizontal, vertical) * StatsManager.Instance.speed;
         }
     }
 
@@ -67,14 +66,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isKnockedBack = true;
         Vector2 direction = (transform.position - enemy.position).normalized;
-        rb.velocity = direction * force;
+        rb.linearVelocity = direction * force;
         StartCoroutine(KnockbackCounter(stunTime));
     }
 
     IEnumerator KnockbackCounter(float stunTime)
     {
         yield return new WaitForSeconds(stunTime);
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         isKnockedBack = false;
     }
 }
