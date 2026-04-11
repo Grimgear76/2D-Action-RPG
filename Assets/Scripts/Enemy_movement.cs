@@ -44,7 +44,8 @@ public class Enemy_movement : MonoBehaviour
             }
             else if (enemyState == EnemyState.Attacking)
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
+
             }
         }
     }
@@ -57,7 +58,7 @@ public class Enemy_movement : MonoBehaviour
             Flip();
         }
         Vector2 direction = (player.position - transform.position).normalized;
-        rb.velocity = direction * speed;
+        rb.linearVelocity = direction * speed;
 
     }
 
@@ -88,7 +89,7 @@ public class Enemy_movement : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             ChangeState(EnemyState.Idle);
         }
     }
