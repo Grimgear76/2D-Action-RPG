@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
+//using UnityEditor.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,15 +21,6 @@ public class PlayerMovement : MonoBehaviour
         {
             player_Combat.Attack();
         }
-    }
-
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
     }
 
     // Update is called once per 50x frame

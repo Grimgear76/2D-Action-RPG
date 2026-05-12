@@ -21,18 +21,28 @@ public class StatsManager : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
             Destroy(gameObject);
+
+        // Auto-find the HealthText GameObject
+        GameObject healthTextObj = GameObject.Find("HealthText");
+        if (healthTextObj != null)
+            healthText = healthTextObj.GetComponent<TMP_Text>();
+        else
+            Debug.LogWarning("HealthText GameObject not found in scene!");
     }
 
     public void UpdateMaxHealth(int amount)
     {
         maxHealth += amount;
         healthText.text = "HP: " + currentHealth + "/ " + maxHealth;
+
+        statsUI.UpdateAllStats();
     }
     public void UpdateHealth(int amount)
     {
@@ -42,11 +52,34 @@ public class StatsManager : MonoBehaviour
             currentHealth = maxHealth;
         }
         healthText.text = "HP: " + currentHealth + "/ " + maxHealth;
+
+        statsUI.UpdateAllStats();
     }
     public void UpdateSpeed(int amount)
     {
         speed += amount;
         statsUI.UpdateAllStats();
     }
+    public void UpdateDamage(int amount)
+    {
+        damage += amount;
+        statsUI.UpdateAllStats();
+    }
 
+    public void LvlUp()
+    {
+        weaponRange += .5f;
+        damage += 1;
+        speed += 1;
+        maxHealth += 2;
+        currentHealth += 2;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        // Update the health UI here, where healthText actually lives
+        healthText.text = "HP: " + currentHealth + " / " + maxHealth;
+
+
+    }
 }

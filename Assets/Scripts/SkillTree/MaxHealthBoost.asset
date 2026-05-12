@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillSO
   skillName: Max Health Boost
   maxLevel: 5
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 5439035362923688692, guid: 49cc9efcb100e2a43802706f82ece00d, type: 3}
+  maxHealthBonus: 1
+  maxDamageBonus: 0

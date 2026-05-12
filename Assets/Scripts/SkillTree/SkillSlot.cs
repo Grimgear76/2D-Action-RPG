@@ -33,6 +33,7 @@ public class SkillSlot : MonoBehaviour
         if(isUnlocked && currentLevel < skillSO.maxLevel)
         {
             currentLevel++;
+            ApplySkillEffect();
             OnAbilityPointSpent?.Invoke(this);
 
             if(currentLevel >= skillSO.maxLevel)
@@ -41,6 +42,23 @@ public class SkillSlot : MonoBehaviour
             }
 
             UpdateUI();
+        }
+    }
+
+    private void ApplySkillEffect()
+    {
+        if (skillSO.maxHealthBonus > 0)
+        {
+            // tries to add health
+            StatsManager.Instance.UpdateMaxHealth(skillSO.maxHealthBonus);
+            StatsManager.Instance.UpdateHealth(skillSO.maxHealthBonus);
+
+        }
+
+        if (skillSO.maxDamageBonus > 0)
+        {
+            // tries to add health
+            StatsManager.Instance.UpdateDamage(skillSO.maxDamageBonus);
         }
     }
 

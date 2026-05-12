@@ -9165,10 +9165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b05b2cb3e14e846a27b3c3c7e5a191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 4
   facingDirection: 1
   rb: {fileID: 2072258100}
   anim: {fileID: 2072258105}
+  player_Combat: {fileID: 0}
 --- !u!95 &2072258105
 Animator:
   serializedVersion: 7
