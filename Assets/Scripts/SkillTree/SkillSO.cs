@@ -9,4 +9,6 @@ public class SkillSO : ScriptableObject
     public string skillName;
     public int maxLevel;
     public Sprite skillIcon;
+    public int maxHealthBonus;
+    public int maxDamageBonus;
 }

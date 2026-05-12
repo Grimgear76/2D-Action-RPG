@@ -93,7 +93,7 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(InventorySlot slot)
     {
-        if(slot.itemSO != null && slot.quantity >= 0)
+        if(slot.itemSO != null && slot.quantity > 0)
         {
             useItem.ApplyItemEffects(slot.itemSO);
 
@@ -105,4 +105,31 @@ public class InventoryManager : MonoBehaviour
             slot.UpdateUI();
         }
     }
+
+    //checks key items
+    public bool HasKeyItem(string keyItemID)
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot.itemSO != null && slot.itemSO.isKeyItem && slot.itemSO.keyItemID == keyItemID && slot.quantity > 0)
+                return true;
+        }
+        return false;
+    }
+
+    public void RemoveKeyItem(string keyItemID)
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot.itemSO != null && slot.itemSO.isKeyItem && slot.itemSO.keyItemID == keyItemID && slot.quantity > 0)
+            {
+                slot.quantity--;
+                if (slot.quantity <= 0)
+                    slot.itemSO = null;
+                slot.UpdateUI();
+                return;
+            }
+        }
+    }
+
 }

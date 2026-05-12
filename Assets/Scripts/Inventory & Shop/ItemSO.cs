@@ -21,4 +21,7 @@ public class ItemSO : ScriptableObject
     [Header("For Temporary Items")]
     public float duration;
 
+    [Header("Key Item")]
+    public bool isKeyItem;
+    public string keyItemID;
 }

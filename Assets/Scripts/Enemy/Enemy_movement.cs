@@ -1,4 +1,4 @@
-using UnityEditor.Tilemaps;
+//using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy_movement : MonoBehaviour
@@ -13,7 +13,7 @@ public class Enemy_movement : MonoBehaviour
     private float attackCooldownTimer;
     private int facingDirection = -1;
     private Rigidbody2D rb;
-    private Transform player;
+    public Transform player;
     private Animator anim;
     private EnemyState enemyState, newState;   //Controls Animations
 

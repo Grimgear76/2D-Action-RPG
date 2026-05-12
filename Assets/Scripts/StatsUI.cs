@@ -1,19 +1,25 @@
 using UnityEngine;
 using TMPro;
-
 public class StatsUI : MonoBehaviour
 {
+    public static StatsUI Instance;
 
     public GameObject[] statsSlots;
     public CanvasGroup statsCanvas;
-
     private bool statsOpen = false;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
         UpdateAllStats();
     }
-
     private void Update()
     {
         if (Input.GetButtonDown("ToggleStats"))
@@ -34,7 +40,6 @@ public class StatsUI : MonoBehaviour
             }
         }
     }
-
     public void UpdateDamage()
     {
         statsSlots[0].GetComponentInChildren<TMP_Text>().text = "Damage: " + StatsManager.Instance.damage;
@@ -43,10 +48,14 @@ public class StatsUI : MonoBehaviour
     {
         statsSlots[1].GetComponentInChildren<TMP_Text>().text = "Speed: " + StatsManager.Instance.speed;
     }
-
+    public void UpdateHealth()
+    {
+        statsSlots[2].GetComponentInChildren<TMP_Text>().text = "Max Health: " + StatsManager.Instance.maxHealth;
+    }
     public void UpdateAllStats()
     {
         UpdateDamage();
         UpdateSpeed();
+        UpdateHealth();
     }
 }
